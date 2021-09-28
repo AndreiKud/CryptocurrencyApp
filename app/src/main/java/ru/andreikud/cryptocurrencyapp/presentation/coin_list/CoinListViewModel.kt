@@ -33,7 +33,7 @@ class CoinListViewModel @Inject constructor(
                     _state.value = CoinListState(isLoading = true)
                 }
                 is Resource.Success -> {
-                    _state.value = CoinListState(data = result.data ?: emptyList())
+                    _state.value = CoinListState(coins = result.data ?: emptyList())
                 }
             }
         }.launchIn(viewModelScope)
