@@ -7,10 +7,10 @@ import ru.andreikud.cryptocurrencyapp.data.remote.dto.detail.CoinDetailDto
 
 interface CoinPaprikaApi {
 
-    @GET("/coins")
+    @GET("coins")
     suspend fun getCoins(): List<CoinDto>
 
-    @GET("/coins/{coin_id}")
+    @GET("coins/{coin_id}")
     suspend fun getCoinById(@Path("coin_id") coinId: String): CoinDetailDto
 
     companion object {

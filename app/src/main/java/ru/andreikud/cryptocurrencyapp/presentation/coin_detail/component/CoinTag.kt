@@ -2,7 +2,9 @@ package ru.andreikud.cryptocurrencyapp.presentation.coin_detail.component
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -17,7 +19,6 @@ fun CoinTag(
 ) {
     Box(
         modifier = Modifier
-            .padding(10.dp)
             .border(
                 width = 1.dp,
                 shape = RoundedCornerShape(100.dp),
@@ -28,7 +29,8 @@ fun CoinTag(
             text = tag,
             color = MaterialTheme.colors.primary,
             textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.body2
+            style = MaterialTheme.typography.body2,
+            modifier = Modifier.padding(horizontal = 10.dp, vertical = 5.dp)
         )
     }
 }

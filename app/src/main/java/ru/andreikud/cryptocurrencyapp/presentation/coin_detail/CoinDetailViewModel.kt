@@ -1,10 +1,13 @@
 package ru.andreikud.cryptocurrencyapp.presentation.coin_detail
 
+import android.util.Log
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import ru.andreikud.cryptocurrencyapp.common.Constants.PARAM_COIN_ID
 import ru.andreikud.cryptocurrencyapp.common.Resource
@@ -39,6 +42,6 @@ class CoinDetailViewModel @Inject constructor(
                     _state.value = CoinDetailState(data = result.data)
                 }
             }
-        }
+        }.launchIn(viewModelScope)
     }
 }

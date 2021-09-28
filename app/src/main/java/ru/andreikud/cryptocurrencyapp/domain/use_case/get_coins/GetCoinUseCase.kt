@@ -13,14 +13,19 @@ import javax.inject.Inject
 class GetCoinUseCase @Inject constructor(
     private val repository: CoinRepository
 ) {
-    operator fun invoke(): Flow<Resource<List<Coin>>> = flow {
+    operator fun invoke(): Flow<Resource<List<Coin>>> = flow<Resource<List<Coin>>> {
         try {
             emit(Resource.Loading())
             val coinsDto = repository.getCoins()
             val coins = coinsDto.map(CoinDto::toCoin)
             emit(Resource.Success(coins))
         } catch (e: HttpException) {
-            emit(Resource.Error(e.localizedMessage ?: "An http error occurred."))
+            emit(
+                Resource.Error(
+                    e.localizedMessage
+                        ?: "An http error occurred."
+                )
+            )
         } catch (e: IOException) {
             emit(
                 Resource.Error(
