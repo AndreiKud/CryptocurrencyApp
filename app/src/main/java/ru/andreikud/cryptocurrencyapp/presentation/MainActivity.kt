@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
+import dagger.hilt.android.AndroidEntryPoint
 import ru.andreikud.cryptocurrencyapp.presentation.ui.theme.CryptocurrencyAppTheme
 
 class MainActivity : AppCompatActivity() {
@@ -14,7 +15,6 @@ class MainActivity : AppCompatActivity() {
         setContent {
             CryptocurrencyAppTheme {
                 Surface(color = MaterialTheme.colors.background) {
-
                 }
             }
         }
